@@ -9,8 +9,8 @@ export function Gallery() {
 
     useEffect(() => {
         async function getMovies() {
-            const { data } = await axios.get(
-                'https://jsonplaceholder.typicode.com/photos/1',
+            const {data} = await axios.get(
+                'https://jsonplaceholder.typicode.com/photos/',
             );
 
             moviesSet(data);
@@ -20,8 +20,12 @@ export function Gallery() {
     }, []);
     return (
         <Container>
-            {movies.length &&
-                movies.map((movie, index) => <Card key={index} item={movie} />)}
+            {movies.length && movies.map((item, index) => {
+                return index <= 50 ? <Card key={index} infoMovie={item} /> : ''
+            })}
+                
         </Container>
     );
 }
+
+// movies.map((movie, index) => <Card key={index} item={movie} />)}
