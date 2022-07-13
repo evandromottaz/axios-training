@@ -1,0 +1,1 @@
+export const GET_DOGS_API = 'https://ranekapi.origamid.dev/json/api/produto/'
