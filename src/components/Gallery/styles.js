@@ -5,4 +5,6 @@ export const Container = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+    overflow-y: scroll;
+    padding-block: 2rem;
 `

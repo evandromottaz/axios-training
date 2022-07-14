@@ -7,11 +7,11 @@ import { GlobalContext } from '../../global/GlobalContext';
 
 export function Gallery() {
     const [movies, moviesSet] = useState([]);
-    const global = useContext(GlobalContext)
-    
+    const global = useContext(GlobalContext);
+
     useEffect(() => {
         async function getMovies() {
-            const {data} = await axios.get(
+            const { data } = await axios.get(
                 'https://jsonplaceholder.typicode.com/photos/',
             );
 
@@ -21,11 +21,25 @@ export function Gallery() {
         getMovies();
     }, []);
 
-    if(!movies.length && !global.length) return;
+    if (!movies.length && !global.length) return;
+
+    console.log(global[0].preco);
     return (
         <Container>
             {movies.map((item, index) => {
-                return index <= 8 ? <Card key={index} price={global[index].preco} infoMovie={item} /> : ''
+                return index <= 20 ? (
+                    <Card
+                        key={index}
+                        price={
+                            global[index]
+                                ? global[index].preco
+                                : 'Fora de estoque'
+                        }
+                        infoMovie={item}
+                    />
+                ) : (
+                    ''
+                );
             })}
         </Container>
     );

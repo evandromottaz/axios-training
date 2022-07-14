@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
     padding: 1rem;
     background-color: #ccc;
-    width: 200px;
+    width: 220px;
     border-radius: 20px;
     display: grid;
-    grid-template-rows: 55px max-content;
+    grid-template-rows: min-content;
 `;
 
 export const Title = styled.h2`
@@ -14,6 +14,7 @@ export const Title = styled.h2`
     line-height: 1.1;
     color: #222;
     text-align: center;
+    align-items: center;
 `
 
 export const Img = styled.div(props => ({
@@ -25,6 +26,7 @@ export const Img = styled.div(props => ({
     backgroundRepeat: 'no-repeat',
     position: 'relative',
     marginTop: '20px',
+    alignSelf: 'end',
 
     '&::after': {
         content: '""',
@@ -60,6 +62,7 @@ export const Img = styled.div(props => ({
 export const ImgTitle = styled.h3`
     padding: 0.5rem 1.5rem;
     color: #fff;
-    font-size: 10px;
+    text-shadow: 0 0 5px #000;
+    font-size: 16px;
     text-align: center;
 `
